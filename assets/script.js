@@ -22,4 +22,24 @@ var toUpper = function (letter) {
   return letter.toUpperCase();
 }
 
-var capatilize = characters.map(toUpper);
+var capatilize = letters.map(toUpper);
+
+//creating events upon users click of button
+
+var genBtn = document.getElementById('generate');
+
+genBtn.addEventListener('click', function () {
+  genPwd = generatePassword();
+  document.getElementById('password').innerText = genPwd;
+});
+
+function generatePassword(){
+  submit = parseInt(prompt('To define length of password, enter amount between 8 and 128?'))
+}
+
+if (!submit) {
+  alert('A value must be entered to set this restriction')
+} else if (submit < 8 || submit > 128) {
+  submit = parseInt(prompt('A number between 8 and 128 must be entered to use this restriction'));
+};
+
